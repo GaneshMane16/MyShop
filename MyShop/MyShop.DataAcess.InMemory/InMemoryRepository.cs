@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyShop.DataAcess.InMemory
 {
-   public  class InMemoryRepository<T> where T :BaseEntity
+    public class InMemoryRepository<T> where T : BaseEntity
     {
 
         ObjectCache cache = MemoryCache.Default;
@@ -18,15 +18,15 @@ namespace MyShop.DataAcess.InMemory
         public InMemoryRepository()
         {
             className = typeof(T).Name;
-            items = cache["className"] as List<T>;//check
+            items = cache[className] as List<T>;//check
 
-            if(items==null)
+            if (items == null)
             {
-                items = new List<T>();  
+                items = new List<T>();
             }
         }
 
-        public   void Commit()
+        public void Commit()
         {
             cache[className] = items;
         }
@@ -39,7 +39,8 @@ namespace MyShop.DataAcess.InMemory
         public void Update(T t)
         {
             T tToupdate = items.Find(i => i.Id == t.Id);
-            if (tToupdate!=null)
+
+            if (tToupdate != null)
             {
 
                 tToupdate = t;
@@ -54,7 +55,7 @@ namespace MyShop.DataAcess.InMemory
         public T Find(string Id)
         {
             T t = items.Find(i => i.Id == Id);
-            if (t !=null)
+            if (t != null)
             {
                 return t;
             }
@@ -67,14 +68,15 @@ namespace MyShop.DataAcess.InMemory
         }
 
 
-        public IQueryable<T> Collection()
+        public IQueryable<T> Collection()//my
         {
             return items.AsQueryable();
         }
 
         public void Delete(string Id)
         {
-            T tToDelete = items.Find(i => i.Id ==   Id);
+            T tToDelete = items.Find(i => i.Id == Id);
+
             if (tToDelete != null)
             {
 

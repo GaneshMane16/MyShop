@@ -11,5 +11,8 @@ namespace MyShop.Coree.ViewModels
     {
         public Product Product { get; set; }
         public IEnumerable<ProductCategory> ProductCategories { get; set; }
+
+
+
     }
 }

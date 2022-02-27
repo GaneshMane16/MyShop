@@ -15,9 +15,7 @@ namespace MyShop.Coree.Models
         {
             this.Id = Guid.NewGuid().ToString();
             this.CreatedAt = DateTime.Now;
-
         }
-
 
     }
 }
