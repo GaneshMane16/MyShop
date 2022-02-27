@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SQLRepository.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Migrations\202202272208413_Initial.cs" />
     <Compile Include="Migrations\202202272208413_Initial.Designer.cs">
